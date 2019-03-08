@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initView(){
         var linearLayoutManager = LinearLayoutManager(this)
-        linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
+        linearLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
         recyclerTimeLine.layoutManager = linearLayoutManager
         recyclerTimeLine.addItemDecoration(TimeLineItemDecoration(this))
         var timeLineAdapter = TimeLineAdapter(this , dataList)
