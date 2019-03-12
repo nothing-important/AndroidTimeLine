@@ -10,7 +10,7 @@ class TimeLineItemDecoration(var context: Context) : RecyclerView.ItemDecoration
     //上下左右的偏移量
     private var topOffset : Int = dp2px(context , 30)
     private var bottomOffset : Int = 0
-    private var leftOffset : Int = dp2px(context , 60)
+    private var leftOffset : Int = dp2px(context , 100)
     private var rightOffset : Int = 0
     //轴点半径
     private var circleRadius : Float = dp2px(context , 8).toFloat()
@@ -26,19 +26,19 @@ class TimeLineItemDecoration(var context: Context) : RecyclerView.ItemDecoration
         paintLine?.color = Color.GRAY
         paintLine?.style = Paint.Style.STROKE
         paintLine?.strokeCap = Paint.Cap.ROUND
-        paintLine?.strokeWidth = dp2px(context , 2).toFloat()
-        var array : FloatArray = floatArrayOf(10f , 10f)
+        paintLine?.strokeWidth = dp2px(context , 4).toFloat()
+        val array : FloatArray = floatArrayOf(10f , 10f)
         paintLine?.pathEffect = DashPathEffect(array , 0f)
     }
 
     override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
         super.getItemOffsets(outRect, view, parent, state)
-        setHorizontalRect(outRect)
+        setVerticalRect(outRect)
     }
 
     override fun onDraw(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
         super.onDraw(c, parent, state)
-        drawHorizontalTimeLine(c , parent)
+        drawVerticalTimeLine(c , parent)
     }
 
     /**
@@ -129,5 +129,14 @@ class TimeLineItemDecoration(var context: Context) : RecyclerView.ItemDecoration
         val displayMetrics = context.resources.displayMetrics
         return ((displayMetrics.density*dpValue + 0.5f).toInt())
     }
+
+    /**
+     * 随着改革开发和现代化建设的不断深入，我国社会主义精神文明建设呈现出积极、健康、向上的良好趋势，但是，我国
+     * 公民的道德素质建设仍然存在一些问题。在社会的一些领域和一些方面道德失范，是非、善恶、美丑界限混淆，拜金主义、
+     * 享乐主义、极端个人主义有所滋长，打破道德底线的现象时有发生。仓廪实，更需重礼节。加强国民道德素质建设，
+     * 促进物质文明和精神文明和谐发展，是摆在我们面前的一项艰巨而又紧迫的任务。
+     *
+     *
+     */
 
 }

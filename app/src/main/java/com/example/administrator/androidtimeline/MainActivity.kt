@@ -3,6 +3,8 @@ package com.example.administrator.androidtimeline
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -26,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initView(){
         var linearLayoutManager = LinearLayoutManager(this)
-        linearLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
+        linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
         recyclerTimeLine.layoutManager = linearLayoutManager
         recyclerTimeLine.addItemDecoration(TimeLineItemDecoration(this))
         var timeLineAdapter = TimeLineAdapter(this , dataList)
