@@ -8,13 +8,6 @@
     android:background="#fff"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:elevation="100dp"
-        android:translationZ="10dp"
-        android:background="@drawable/bg_test"/>
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerTimeLine"
         android:overScrollMode="never"

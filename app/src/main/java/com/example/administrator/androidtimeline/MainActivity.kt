@@ -21,7 +21,13 @@ class MainActivity : AppCompatActivity() {
     private fun initData(){
         for (i in 1..20){
             var timeLineBean = TimeLineBean()
-            timeLineBean.desc = "这是第 $i 个状态"
+            timeLineBean.desc = "这是第$i 个状态"
+            when {
+                i % 2 == 0 -> timeLineBean.img = R.mipmap.add_consignee
+                i % 3 == 0 -> timeLineBean.img = R.mipmap.commit_order_nocheck
+                else -> timeLineBean.img = R.mipmap.commit_order_check
+            }
+            timeLineBean.time = "2019年$i 月$i 日"
             dataList.add(timeLineBean)
         }
     }
@@ -30,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         var linearLayoutManager = LinearLayoutManager(this)
         linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
         recyclerTimeLine.layoutManager = linearLayoutManager
-        recyclerTimeLine.addItemDecoration(TimeLineItemDecoration(this))
+        recyclerTimeLine.addItemDecoration(TimeLineItemDecoration(this , dataList))
         var timeLineAdapter = TimeLineAdapter(this , dataList)
         recyclerTimeLine.adapter = timeLineAdapter
     }
